@@ -17,71 +17,80 @@ export default {
     switch (type) {
       case ACTION_SET_FROM:
         return payload;
-      default:
+      default: 
     }
+    // 都没有匹配上，返回原来的值state
+    return state;
   },
   to (state = '上海', action) {
     const { type, payload } = action
     switch (type) {
       case ACTION_SET_TO:
         return payload;
-      default:
+      default: 
     }
+    return state;
   },
   isCitySelectorVisible (state = false, action) {
     const { type, payload } = action
     switch (type) {
       case ACTION_SET_IS_CITY_SELECTOR_VISIBLE:
         return payload;
-      default:
+      default: 
     }
+    return state;
   },
   currentSelectingLeftCity (state = false, action) {
     const { type, payload } = action
     switch (type) {
       case ACTION_SET_CURRENT_SELECTING_LEFT_CITY:
         return payload;
-      default:
+      default: 
     }
+    return state;
   },
   cityData (state = null, action) {
     const { type, payload } = action
     switch (type) {
       case ACTION_SET_CITY_DATA:
         return payload;
-      default:
+      default: 
     }
+    return state;
   },
   isLoadingCityData (state = false, action) {
     const { type, payload } = action
     switch (type) {
       case ACTION_SET_IS_LOADING_CITY_DATA:
         return payload;
-      default:
+      default: 
     }
+    return state;
   },
   isDateSelectorVisible (state = false, action) {
     const { type, payload } = action
     switch (type) {
       case ACTION_SET_IS_DATE_SELECTOR_VISIBLE:
         return payload;
-      default:
+      default: 
     }
+    return state;
   },
   highSpeed (state = false, action) {
     const { type, payload } = action
     switch (type) {
       case ACTION_SET_HIGH_SPEED:
         return payload;
-      default:
+      default: 
     }
+    return state;
   },
-  departDate(state,action){
-    const {type,payload} =action
-    switch(type){
-      case ACTION_SET_IS_DEPART_DATE:
-        return payload;
-        default: 
-    }
-  }
+  // departDate (state, action) {
+  //   const { type, payload } = action
+  //   switch (type) {
+  //     case ACTION_SET_IS_DEPART_DATE:
+  //       return payload;
+  //     default: return false;
+  //   }
+  // }
 }

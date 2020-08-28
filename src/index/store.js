@@ -7,6 +7,7 @@ import {
 import reducers from './reducers'
 import thunk from 'redux-thunk'
 
+// createStore第二个参数传染病默认数据
 export default createStore(
   combineReducers(reducers),
   {
@@ -18,7 +19,7 @@ export default createStore(
     isLoadingCityData: false,
     isDateSelectorVisible: false,
     highSpeed: false,
-    departDate: ''
+    // departDate: ''
   },
   applyMiddleware(thunk)
 )

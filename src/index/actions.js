@@ -23,6 +23,13 @@ export function setTo (to) {
   }
 }
 
+export function setISLoadingCityData(isLoadingCityData){
+  return {
+    type: ACTION_SET_IS_LOADING_CITY_DATA,
+    payload: isLoadingCityData
+  }
+}
+
 export function setCityData (cityDate) {
   return {
     type: ACTION_SET_CITY_DATA,
@@ -39,7 +46,6 @@ export function toggleHighSpeed () {
     })
   }
 }
-
 
 export function showCitySelector (currentSelectingLeftCity) {
   return (dispatch) => {
@@ -92,7 +98,7 @@ export function exchangeFromTo () {
     dispatch(setTo(from))
   }
 }
-
+ 
 export function setDepartDate(departDate){
   return {
     type: ACTION_SET_IS_DEPART_DATE,

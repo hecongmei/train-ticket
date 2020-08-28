@@ -1,0 +1,13 @@
+.journey {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  font-size: 24px;
+  
+}
+.journey-input {
+  line-height: 48px;
+}
+.journey-to {
+    text-align: right;
+}
