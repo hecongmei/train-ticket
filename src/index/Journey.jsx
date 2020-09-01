@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import switchImg from './imgs/switch.png'
 import './Journey.css'
 
 function Journey(props) {
@@ -18,7 +17,7 @@ function Journey(props) {
         />
       </div>
       <div className="journey-switch">
-        <img src={switchImg} alt="" onClick={() => exchangeFromTo()} />
+        <i className="iconfont icon-jiantou_zuoyouqiehuan"></i>
       </div>
       <div className="journey-station">
         <input

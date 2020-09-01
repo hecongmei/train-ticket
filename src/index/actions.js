@@ -1,3 +1,7 @@
+import React from 'react'
+import axios from 'axios'
+
+
 export const ACTION_SET_FROM = 'FROM'
 export const ACTION_SET_TO = 'TO'
 export const ACTION_SET_IS_CITY_SELECTOR_VISIBLE = 'IS_CITY_SELECTOR_VISIBLE'
@@ -23,7 +27,7 @@ export function setTo (to) {
   }
 }
 
-export function setISLoadingCityData(isLoadingCityData){
+export function setIsLoadingCityData (isLoadingCityData) {
   return {
     type: ACTION_SET_IS_LOADING_CITY_DATA,
     payload: isLoadingCityData
@@ -68,13 +72,14 @@ export function hideCitySelector () {
 }
 
 export function setSelectedCity (city) {
-  return (dispatch,getState) => {
+  return (dispatch, getState) => {
     const { currentSelectingLeftCity } = getState()
     if (currentSelectingLeftCity) {
       dispatch(setFrom(city))
     } else {
       dispatch(setTo(city))
     }
+    dispatch(hideCitySelector())
   }
 }
 
@@ -98,10 +103,47 @@ export function exchangeFromTo () {
     dispatch(setTo(from))
   }
 }
- 
-export function setDepartDate(departDate){
+
+export function setDepartDate (departDate) {
   return {
     type: ACTION_SET_IS_DEPART_DATE,
     payload: departDate
+  }
+}
+
+export function fetchCityData () {
+  return (dispatch, getState) => {
+    const { isLoadingCityData } = getState
+    if (isLoadingCityData) {
+      return
+    }
+    const cache = JSON.parse(localStorage.getItem('city_data_cache') || '{}')
+    if (Date.now() < cache.expires) {
+      dispatch(setCityData(cache.data))
+      return
+    }
+    dispatch(setIsLoadingCityData(true))
+
+    fetch('./mocker/rest/cities.json', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      }
+    })
+      .then(response => response.json())
+      .then(cityDate => {
+        dispatch(setCityData(cityDate))
+        localStorage.setItem(
+          'city_data_cache', JSON.stringify({
+            expires: Date.now() + 60 * 1000,
+            data: cityDate
+          })
+        )
+        dispatch(setIsLoadingCityData(false))
+      })
+      .catch(() => {
+        dispatch(setIsLoadingCityData(false))
+      })
   }
 }
