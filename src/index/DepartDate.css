@@ -1,0 +1,17 @@
+.depart-date {
+  display: flex;
+  align-items: center;
+  font-size: 22px;
+  line-height: 60px;
+  height: 60px;
+  background: #fff;
+  border-bottom: 1px solid #eaeaea;
+  text-align: left;
+  color: #333;
+}
+
+.depart-week {
+  color: #888;
+  font-size: 18px;
+  margin: 0 10px;
+}

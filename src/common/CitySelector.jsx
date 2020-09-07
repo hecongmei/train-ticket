@@ -109,7 +109,7 @@ const Suggest = memo(function Suggest(props) {
   const [result, setResult] = useState([])
 
   useEffect(() => {
-    fetch('/rest/search?key='+encodeURIComponent(searchKey), {
+    fetch('/rest/search?key=' + encodeURIComponent(searchKey), {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

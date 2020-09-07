@@ -10,7 +10,7 @@ export const ACTION_SET_CITY_DATA = 'CITY_DATA'
 export const ACTION_SET_IS_LOADING_CITY_DATA = 'IS_LOADING_CITY_DATA'
 export const ACTION_SET_IS_DATE_SELECTOR_VISIBLE = 'IS_DATE_SELECTOR_VISIBLE'
 export const ACTION_SET_HIGH_SPEED = 'HIGH_SPEED'
-export const ACTION_SET_IS_DEPART_DATE = 'DEPART_DATE'
+export const ACTION_SET_DEPART_DATE = 'DEPART_DATE'
 
 
 export function setFrom (from) {
@@ -83,13 +83,13 @@ export function setSelectedCity (city) {
   }
 }
 
-export function showDataSelector () {
+export function showDateSelector () {
   return {
     type: ACTION_SET_IS_DATE_SELECTOR_VISIBLE,
     payload: true
   }
 }
-export function hideDataSelector () {
+export function hideDateSelector () {
   return {
     type: ACTION_SET_IS_DATE_SELECTOR_VISIBLE,
     payload: false
@@ -106,7 +106,7 @@ export function exchangeFromTo () {
 
 export function setDepartDate (departDate) {
   return {
-    type: ACTION_SET_IS_DEPART_DATE,
+    type: ACTION_SET_DEPART_DATE,
     payload: departDate
   }
 }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './Journey.css'
 
 function Journey(props) {
@@ -17,7 +17,10 @@ function Journey(props) {
         />
       </div>
       <div className="journey-switch">
-        <i className="iconfont icon-jiantou_zuoyouqiehuan"></i>
+        <i
+          className="iconfont icon-jiantou_zuoyouqiehuan"
+          onClick={() => exchangeFromTo()}
+        ></i>
       </div>
       <div className="journey-station">
         <input
